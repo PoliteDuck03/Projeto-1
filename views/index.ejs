@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="icon" href="/public/assets/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"> 
+    <title>Projeto 1</title>
+</head>
+<body>
+    <header>Projeto 1</header>
+    <div class="container">
+        <div class="inicio">
+            <img src="/assets/database-1.webp" />
+            <div class="texto">
+                <h1>TEXTO CHAMATIVO</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae eius, beatae, accusantium aliquid mollitia error alias aspernatur hic eligendi quo amet! Labore unde facere at iste natus perferendis doloribus nemo ipsa quasi a praesentium, atque vero? Consequatur sunt laboriosam vel repellendus neque! Quaerat, velit quod distinctio, sint corporis cupiditate, ullam voluptates in debitis voluptate deleniti adipisci at? Alias et dolorum quasi recusandae delectus, quis accusantium ea veniam totam saepe? Labore ea saepe aspernatur quod, corporis dolores culpa voluptas eaque quae sunt, beatae vitae ut nobis perspiciatis rem accusantium obcaecati sed magnam sequi molestias? Dicta ipsa debitis eos ex deserunt reprehenderit!</p>
+            </div>
+        </div>
+    </div>
+    <div class="container-meio">
+        <div class="meio">
+            <div class="img-meio">
+                <img src="/assets/film-rolls.svg"/>
+                <p>Descrição</p>
+            </div>
+            <div class="img-meio">
+                <img src="/assets/database.svg"/>
+                <p>Descrição</p>
+            </div>
+            <div class="img-meio">
+                <img src="/assets/secure-data.svg"/>
+                <p>Descrição</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="fim-mongodb">
+            <img src="/assets/mongodb.webp"/>
+            <div class="tabela">
+                <h1>Salve seu filme favorito com <span class="mongo-bold">MongoDB</span>:</h1>
+                <div>
+                    <form action="/" method="POST">
+                        <label>Título</label>
+                        <input type="text" name="titulo" required>
+                        <label>Assistido Em</label>
+                        <input type="date" name="assistidoEm" required>
+                        <label>Nota</label>
+                        <input type="number" name="nota" min="0" max="10" required>
+                        <button type="submit">Salvar</button>
+                    </form>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Título</th>
+                                <th scope="col">Assistido Em</th>
+                                <th scope="col">Nota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% let rows = 0; %> 
+                            <% movie.forEach(movie => {%>
+                            <tr>
+                                <td><%= movie.titulo %></td>
+                                <td>
+                                    <% const data = movie.assistidoEm.toLocaleString("pt-BR", {dateStyle: "short"}); %>
+                                    <%= data %>                           
+                                </td>
+                                <td><%= movie.nota %></td>
+                            </tr>
+                            <% rows ++; %>
+                            <% }); %>
+                            <% while (rows < 5) { %>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <% rows ++; %> 
+                            <% } %>  
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="fim-postgreSQL">
+            <div class="tabela">
+                <h1>Salve sua série favorita com <span class="postgre-bold">PostgreSQL</span>:</h1>
+                <div>
+                    <form action="/" method="POST">
+                        <label>Título</label>
+                        <input type="text" name="titulo2" required>
+                        <label>Assistido Em</label>
+                        <input type="date" name="assistidoEm2" required>
+                        <label>Nota</label>
+                        <input type="number" name="nota2" min="0" max="10" required>
+                        <button type="submit">Salvar</button>
+                    </form>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Título</th>
+                                <th scope="col">Assistido Em</th>
+                                <th scope="col">Nota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% let r = 0; %> 
+                            <% serie.forEach(serie => {%>
+                            <tr>
+                                <td><%= serie.titulo2 %></td>
+                                <td>
+                                    <% const data = serie.assistidoEm2.toLocaleString("pt-BR", {dateStyle: "short"}); %>
+                                    <%= data %>                           
+                                </td>
+                                <td><%= serie.nota2 %></td>
+                            </tr>
+                            <% r ++; %>
+                            <% }); %>
+                            <% while (r < 5) { %>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <% r ++; %> 
+                            <% } %>  
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+            <img src="/assets/postgresql.webp"/>
+        </div>
+    </div>
+</body>
+<footer>
+    <div class="footer">
+        <ul>
+            <li>Opção</li>
+            <li>Opção</li>
+            <li>Opção</li>
+            <li>Opção</li>
+            <li>Opção</li>
+        </ul>
+        <ul>
+            <li>Opção</li>
+            <li>Opção</li>
+            <li>Opção</li>
+            <li>Opção</li>
+            <li>Opção</li>
+        </ul>
+        <ul>
+            <li>Opção</li>
+            <li>Opção</li>
+            <li>Opção</li>
+            <li>Opção</li>
+            <li>Opção</li>
+        </ul>
+    </div>
+</footer>
+</html>
