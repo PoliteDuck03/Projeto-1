@@ -23,16 +23,9 @@ router.post('/', async (req, res) => {
         assistidoEm: new Date(req.body.assistidoEm).addDays(1),
         nota: req.body.nota
     });
-
-    let dataSerieString;
-    if (req.body.assistidoEm2) {
-        const dataSerie = new Date(req.body.assistidoEm2).addDays(1);
-        dataSerieString = dataSerie.toISOString().slice(0,10);
-    }
-
     const serie = {
         titulo: req.body.titulo2,
-        assistidoEm: dataSerieString,
+        assistidoEm: new Date(req.body.assistidoEm2).addDays(1).toLocaleString("pt-BR", {dateStyle: "short"}),
         nota: req.body.nota2
     };
 
@@ -72,8 +65,9 @@ async function selectFrom(text, table, condition) {
 
 async function insertInto(v1, v2, v3) {
     const client = await psql.connect();
+    //TODO descobrir um jeito de passar a tabela e as colunas sem quebrar a query. 
     try {
-        await client.query('INSERT INTO series (titulo, assistido_em, nota) VALUES ($1, $2, $3)', [ v1, v2, v3]);
+        await client.query('INSERT INTO series (titulo, assistido_em, nota) VALUES ($1, $2, $3)', [v1, v2, v3]);
         console.log('[PSQL] Nova linha inserida');
     } finally {
         client.release();
