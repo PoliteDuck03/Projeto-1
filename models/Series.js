@@ -1,19 +1,15 @@
-const mongoose = require('mongoose');
+const { Pool } = require('pg');
+const server_data = require('../server_data.js');
 
-const serieSchema = new mongoose.Schema({
-    titulo2: {
-        type: String,
-        required: true
-    },
-    assistidoEm2: {
-        type: Date,
-        required: true,
-        default: new Date()
-    },
-    nota2: {
-        type: Number,
-        required: true
-    },
+const pool = new Pool(server_data);
+
+pool.on('error', (err, client) => {
+    console.error('Unexpected error on idle client', err)
+    process.exit(-1)
 });
 
-module.exports = mongoose.model('Serie', serieSchema);
+module.exports = {
+    connect: () => {
+        return pool.connect();
+    }
+  }

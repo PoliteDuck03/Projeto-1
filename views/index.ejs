@@ -119,12 +119,12 @@
                             <% let r = 0; %> 
                             <% serie.forEach(serie => {%>
                             <tr>
-                                <td><%= serie.titulo2 %></td>
+                                <td><%= serie.titulo %></td>
                                 <td>
-                                    <% const data = serie.assistidoEm2.toLocaleString("pt-BR", {dateStyle: "short"}); %>
+                                    <% const data = serie.assistido_em.toLocaleString("pt-BR", {dateStyle: "short"}); %>
                                     <%= data %>                           
                                 </td>
-                                <td><%= serie.nota2 %></td>
+                                <td><%= serie.nota %></td>
                             </tr>
                             <% r ++; %>
                             <% }); %>
