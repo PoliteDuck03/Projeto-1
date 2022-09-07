@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
-const favicon = require('serve-favicon');
 //const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const indexRouter = require('./routes/index.js');
@@ -12,7 +11,6 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
 app.use(express.static(__dirname + '/public'));
-app.use(favicon(path.join(__dirname,'public','assets','favicon.ico')));
 
 //Mongo Database
 mongoose.connect('mongodb://localhost/projeto1');

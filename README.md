@@ -13,3 +13,4 @@ TODO:
 - Substituir a função AddDays com métodos do objeto Date()
 - Escrever os textos das descrição
 - Estilizar o header e o footer
+- Enviar o favicon corretamente

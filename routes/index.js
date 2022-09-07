@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
     res.render('index', {movie, serie});
 });
 
-//Cria nova movie
+//Cria novo filme
 router.post('/', async (req, res) => {
     //A função addDays resolve o problema de fuso horário
     const movie = new Movie ({
@@ -88,7 +88,7 @@ async function insertInto(table, col, v1, v2, v3) {
     }
 }
 
-async function deleteFrom(table, id) {
+async function deleteByIdFrom(table, id) {
     const client = await psql.connect();
     try {
         await client.query(`DELETE FROM ${table} WHERE id = $1`, [id]);
