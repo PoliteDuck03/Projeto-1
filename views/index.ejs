@@ -74,7 +74,7 @@
                                         <%= data %>                           
                                     </td>
                                     <td><%= movie.nota %></td>
-                                    <td class="btn"><button type="submit" class="btn-delete" name="btn" value="M<%= rows %>"><img class="btn" src="/assets/cancel.png" alt="Deletar linha"></button></td>
+                                    <td class="btn"><button type="submit" class="btn-delete" name="btnMD" value="<%= rows %>"><img class="btn" src="/assets/cancel.png" alt="Deletar linha"></button></td>
                                 </tr>
                                 <% rows ++; %>
                                 <% }); %>
@@ -129,7 +129,7 @@
                                         <%= data %>                           
                                     </td>
                                     <td><%= serie.nota %></td>
-                                    <td class="btn"><button type="submit" class="btn-delete" name="btn" value="S<%= r %>"><img class="btn" src="/assets/cancel.png" alt="Deletar linha"></button></td>
+                                    <td class="btn"><button type="submit" class="btn-delete" name="btnPSQL" value="<%= r %>"><img class="btn" src="/assets/cancel.png" alt="Deletar linha"></button></td>
                                 </tr>
                                 <% r ++; %>
                                 <% }); %>

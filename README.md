@@ -6,8 +6,8 @@ Tabela 1 OK
 Tabela 2 TEMP;
 
 UPDATED:
-- Excluí a gambiarra para salvar data em string;
-- Adicionei os botões para deletar uma linha (não funcionam ainda);
+- Funções de deletar implementadas;
+- insertInto pode receber o nome da tabela como parametro. Por questão de segurança, isso não é permitido por padrão;
 
 TODO:
 - Substituir a função AddDays com métodos do objeto Date()
