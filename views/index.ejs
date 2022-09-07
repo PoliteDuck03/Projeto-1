@@ -55,39 +55,42 @@
                     </form>
                 </div>
                 <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th scope="col">Título</th>
-                                <th scope="col">Assistido Em</th>
-                                <th scope="col">Nota</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% let rows = 0; %> 
-                            <% movie.forEach(movie => {%>
-                            <tr>
-                                <td><%= movie.titulo %></td>
-                                <td>
-                                    <% const data = movie.assistidoEm.toLocaleString("pt-BR", {dateStyle: "short"}); %>
-                                    <%= data %>                           
-                                </td>
-                                <td><%= movie.nota %></td>
-                            </tr>
-                            <% rows ++; %>
-                            <% }); %>
-                            <% while (rows < 5) { %>
+                    <form action="/" method="POST">
+                        <table>
+                            <thead>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <th scope="col">Título</th>
+                                    <th scope="col">Assistido Em</th>
+                                    <th scope="col">Nota</th>
                                 </tr>
-                                <% rows ++; %> 
-                            <% } %>  
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <% let rows = 0; %> 
+                                <% movie.forEach(movie => {%>
+                                <tr>
+                                    <td><%= movie.titulo %></td>
+                                    <td>
+                                        <% const data = movie.assistidoEm.toLocaleString("pt-BR", {dateStyle: "short"}); %>
+                                        <%= data %>                           
+                                    </td>
+                                    <td><%= movie.nota %></td>
+                                    <td class="btn"><button type="submit" class="btn-delete" name="btn" value="M<%= rows %>"><img class="btn" src="/assets/cancel.png" alt="Deletar linha"></button></td>
+                                </tr>
+                                <% rows ++; %>
+                                <% }); %>
+                                <% while (rows < 5) { %>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="btn-empty"></td>
+                                    </tr>
+                                    <% rows ++; %> 
+                                <% } %>  
+                            </tbody>
+                        </table>
+                    </form>
                 </div>
-                
             </div>
         </div>
     </div>
@@ -107,37 +110,41 @@
                     </form>
                 </div>
                 <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th scope="col">Título</th>
-                                <th scope="col">Assistido Em</th>
-                                <th scope="col">Nota</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% let r = 0; %> 
-                            <% serie.forEach(serie => {%>
-                            <tr>
-                                <td><%= serie.titulo %></td>
-                                <td>
-                                    <% const data = serie.assistido_em.toLocaleString("pt-BR", {dateStyle: "short"}); %>
-                                    <%= data %>                           
-                                </td>
-                                <td><%= serie.nota %></td>
-                            </tr>
-                            <% r ++; %>
-                            <% }); %>
-                            <% while (r < 5) { %>
+                    <form action="/" method="POST">
+                        <table>
+                            <thead>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <th scope="col">Título</th>
+                                    <th scope="col">Assistido Em</th>
+                                    <th scope="col">Nota</th>
                                 </tr>
-                                <% r ++; %> 
-                            <% } %>  
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <% let r = 0; %> 
+                                <% serie.forEach(serie => {%>
+                                <tr>
+                                    <td><%= serie.titulo %></td>
+                                    <td>
+                                        <% const data = serie.assistido_em.toLocaleString("pt-BR", {dateStyle: "short"}); %>
+                                        <%= data %>                           
+                                    </td>
+                                    <td><%= serie.nota %></td>
+                                    <td class="btn"><button type="submit" class="btn-delete" name="btn" value="S<%= r %>"><img class="btn" src="/assets/cancel.png" alt="Deletar linha"></button></td>
+                                </tr>
+                                <% r ++; %>
+                                <% }); %>
+                                <% while (r < 5) { %>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="btn-empty"></td>
+                                    </tr>
+                                    <% r ++; %> 
+                                <% } %>  
+                            </tbody>
+                        </table>
+                    </form>
                 </div>
                 
             </div>

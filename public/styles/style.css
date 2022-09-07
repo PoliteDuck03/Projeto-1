@@ -113,13 +113,16 @@ footer {
     scrollbar-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
 }
 
-.fim-mongodb td, tr {
+.fim-mongodb td {
     border: 2px;
     border-style: solid;
+    height: 1em;
 }
 
-.fim-mongodb td {
-    height: 1em;
+.fim-mongodb td.btn, td.btn-empty {
+    border-style: none;
+    height: 1em ;
+    width: 1em;
 }
 
 .fim-postgreSQL {
@@ -158,17 +161,21 @@ footer {
     width: 100%;
     max-height: 12em;
     overflow: auto;
-    scrollbar-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
-}
-
-.fim-postgreSQL td, tr {
-    border: 2px;
-    border-style: solid;
+    scrollbar-color: transparent transparent;
 }
 
 .fim-postgreSQL td {
+    border: 2px;
+    border-style: solid;
     height: 1em;
 }
+
+.fim-postgreSQL td.btn {
+    border-style: none;
+    height: 1em ;
+    width: 1em;
+}
+
 .mongo-bold {
     font-weight: bolder;
     color: var(--mongo-brown);
@@ -177,6 +184,22 @@ footer {
 .postgre-bold {
     font-weight: bolder;
     color: var(--postgres-blue);
+}
+
+img.btn{
+    min-height: 1em;
+    min-width: 1em;
+    background-color: transparent;
+}
+
+img.btn-empty {
+    visibility: hidden;
+}
+
+button.btn-delete {
+    cursor: pointer;
+    background-color: transparent;
+    border-style: none;
 }
 
 :root {
